@@ -25,6 +25,7 @@ jobs:
         run: go test ./main_test.go
 
   compile:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -40,5 +41,3 @@ jobs:
 
       - name: Compile binary
         run: go build -o myapp
-  needs:
-    [test, compile]
